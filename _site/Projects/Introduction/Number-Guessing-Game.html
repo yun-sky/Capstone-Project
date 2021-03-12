@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!--Meta Tags-->
+    <meta charset="utf-8">
+
+    <!-- CDN Distributed Files-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/atom-one-dark-reasonable.min.css" integrity="sha512-DYEvxq+ESMe6pfhEV4PDJcYLuz3XZ3cp/RTUuAxblTKiIQ7O5Hf7cikoFPdfqrASCPLk5fYAhq8PwPoA7LBluw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" integrity="sha512-zol3kFQ5tnYhL7PzGt0LnllHHVWRGt2bTCIywDiScVvLIlaDOVJ6sPdJTVi0m3rA660RT+yZxkkRzMbb1L8Zkw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/1c.min.js" integrity="sha512-C5GIjUgA7ODWMGQvuWyFZNwq6s5lJLTOPx5oVLX+Ims5piXCsdCfohUC1L015OaUC7DxHPIfvt2eK5ja9fLtEA==" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!--My CSS Files-->
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/style.css>
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/main.css>
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/animation.css>
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/template.css>
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
+
+
+    <!--Website Title-->
+    <title> Number Guessing Game </title>
+
+</head>
+
+<body>
+
+    <nav>
+    <ul>
+        <h2 id="icon">> C:\Users\SkyYun\projects\Introduction\Number Guessing Game</h2>
+        <li><h4><a href="..">Home</a></h4></li>
+        <li><h4><a href=/Capstone-Project/About-Me>About Me</a></h4></li>
+        <li><h4><a href=/Capstone-Project/Projects>Projects</a></h4></li>
+    </ul>
+</nav>
+
+    <section class="content-wrapper">
+
+        <header >
+            <h2 class="test">Number Guessing Game</h2>
+            <h1><span style="color:royalblue;">print</span>("Projects")</h1>
+        </header>
+
+        <p id="number-side"></p>
+        <script src="/assets/js/function.js"></script>
+
+        <main>
+            <section class="sidebar" style="border:white solid 2px; width:250px; height:auto;">
+                <section class="sidebar-section">
+    <h1 class="title">Text-Based Projects</h1>
+    <h2><a href ="Madlibs" class="sidebar-item">Madlibs</a></h2>
+    <h2><a href ="Number-Guessing-Game" class="sidebar-item">Number-Guessing Game</a></h2>
+    <h2><a href ="BonBon-Factory" class="sidebar-item">BonBon Factory</a></h2>
+    <h2><a href ="Chemical-Formula-Converter" class="sidebar-item">Chemical Formula Converter</a></h2>
+    <h2><a href ="Tic-Tac-Toe" class="sidebar-item">Tic-Tac-Toe</a></h2>
+</section>
+
+            </section>
+            <section class="main-content">
+                <h1>
+    Another simple project that I did was a number guessing game. 
+    In this game, the program prompts the user to guess the unknown 
+    number through hints, telling the user whether the unknown number 
+    is higher or lower than the user's previous guess.  I thought this was a
+    great beginner project as it allowed me to learn more about python's random' 
+    module and grasp conditional statements.  
+</h1>
+
+<h1>Before starting anything, at the top of my file, I made sure to import the random module to
+    access its methods later. That way, I could generate a new, random number every time I ran
+    the program. 
+</h1>
+
+<pre><code class="python">
+#Note that "random" and "Random" are considered two different things
+import random
+
+</code></pre>
+
+<h1>Next, I put instructions of the game using a print function and created the variables required:</h1>
+
+<pre><code class="python">
+#\n allows for the following text after \n to be displayed on the next line
+print("Welcome to the number guessing game!\n You have five chances to guess the unknown number.\nGood Luck!")
+
+#The random integer the user has to guess
+secret_num = random.randint(1, 20)
+
+#stores the user's recent guess
+guesses = ""
+
+#will count how many times the user has guessed
+num_count = 0
+
+#The number of guesses allowed before the game ends
+guess_limit = 5
+
+#will tell the program whether the user has lost the game
+out = False
+    
+</code></pre>
+
+<h1>
+    It was time to build the actual program of the game. I used a while loop to reiterate the code (or, in other words, run the game) until the user has run out of guesses or has guessed the number correctly. Inside the while loop, I specified some conditional statements to check if the user's guess is higher or lower than the unknown number and if the user has run out of guesses.
+</h1>
+
+<pre><code class="python">
+
+#If the user's guess is correct, then the while loop will stop
+while guesses != secret_num and out == False:
+    if num_count < guess_limit: 
+        guesses = float(input("Enter a number from 1-20: "))
+        if guesses < secret_num:
+            print("this number is less than the secret number")
+        elif guesses > secret_num:
+            print("This number is greater than the secret value") 
+        num_count += 1
+    else:
+        out = True
+
+</code></pre>
+
+<h1>The code after the loop is what determines the user's outcome. If the game ended because the user ran out of guesses, then out should no longer be false, and a prompt will show up telling the user that they have lost. However, if out remains false, the user has guessed the number correctly and, a different prompt will show up telling them that they have won.
+</h1> 
+
+<pre><code class="python">
+if out == True:
+    print("YOU LOSE")
+    print("The secret number was " + str(secret_num))
+else:
+    print("YOU WON") 
+input()
+</code></pre>
+
+
+
+     
+            </section>
+        </main>
+
+    </section>
+    
+    <footer></footer>
+    
+
+    
+</body>
+</html>
+

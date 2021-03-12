@@ -1,0 +1,85 @@
+---
+layout: project_setup
+placement: projects\Introduction\Number Guessing Game
+project_name: Number Guessing Game
+background: rgb(1, 1, 1)
+sidebar: sidebar_intro.html
+---
+
+<h1>
+    Another simple project that I did was a number guessing game. 
+    In this game, the program prompts the user to guess the unknown 
+    number through hints, telling the user whether the unknown number 
+    is higher or lower than the user's previous guess.  I thought this was a
+    great beginner project as it allowed me to learn more about python's random' 
+    module and grasp conditional statements.  
+</h1>
+
+<h1>Before starting anything, at the top of my file, I made sure to import the random module to
+    access its methods later. That way, I could generate a new, random number every time I ran
+    the program. 
+</h1>
+
+<pre><code class="python">
+#Note that "random" and "Random" are considered two different things
+import random
+
+</code></pre>
+
+<h1>Next, I put instructions of the game using a print function and created the variables required:</h1>
+
+<pre><code class="python">
+#\n allows for the following text after \n to be displayed on the next line
+print("Welcome to the number guessing game!\n You have five chances to guess the unknown number.\nGood Luck!")
+
+#The random integer the user has to guess
+secret_num = random.randint(1, 20)
+
+#stores the user's recent guess
+guesses = ""
+
+#will count how many times the user has guessed
+num_count = 0
+
+#The number of guesses allowed before the game ends
+guess_limit = 5
+
+#will tell the program whether the user has lost the game
+out = False
+    
+</code></pre>
+
+<h1>
+    It was time to build the actual program of the game. I used a while loop to reiterate the code (or, in other words, run the game) until the user has run out of guesses or has guessed the number correctly. Inside the while loop, I specified some conditional statements to check if the user's guess is higher or lower than the unknown number and if the user has run out of guesses.
+</h1>
+
+<pre><code class="python">
+
+#If the user's guess is correct, then the while loop will stop
+while guesses != secret_num and out == False:
+    if num_count < guess_limit: 
+        guesses = float(input("Enter a number from 1-20: "))
+        if guesses < secret_num:
+            print("this number is less than the secret number")
+        elif guesses > secret_num:
+            print("This number is greater than the secret value") 
+        num_count += 1
+    else:
+        out = True
+
+</code></pre>
+
+<h1>The code after the loop is what determines the user's outcome. If the game ended because the user ran out of guesses, then out should no longer be false, and a prompt will show up telling the user that they have lost. However, if out remains false, the user has guessed the number correctly and, a different prompt will show up telling them that they have won.
+</h1> 
+
+<pre><code class="python">
+if out == True:
+    print("YOU LOSE")
+    print("The secret number was " + str(secret_num))
+else:
+    print("YOU WON") 
+input()
+</code></pre>
+
+
+

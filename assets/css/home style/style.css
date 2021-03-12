@@ -1,0 +1,123 @@
+html, body{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow-x: hidden;
+    color:white;
+    font-family:monospace;
+    background:rgb(30,30,30);
+}
+
+/*Navigation*/
+nav {
+    z-index: 2;
+    width: 100%;
+    position: -webkit-sticky;
+    border-bottom:solid rgb(51, 51, 51);
+    background-color: rgb(27, 26, 26);
+    position:sticky;
+    top:0;
+}
+nav ul{
+    text-align: right;
+    list-style-type: none;
+    margin:0px;
+    padding:0;
+}
+nav li {
+    display:inline-block;
+}
+
+nav li:hover{
+    background:rgb(51, 51, 51);
+}
+
+nav li a {
+    font-size:19px;
+    margin:0px 12px 0px 12px;
+    color:rgb(85, 84, 84);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color:white;
+    animation: blink .5s ease-out; 
+}
+
+#icon {
+    margin-left:10px;
+    float:left;
+}
+nav li.disabled {
+    border-bottom:white solid;
+}
+nav li.disabled a {
+    color:white;
+}
+
+
+/*Header*/
+header{
+    padding: 210px 100px 200px 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../images/Backrgound.png);
+}
+
+header .header-title{
+    margin:0px;
+    font-size: 6em;
+    text-align: center;
+}
+header .header-subtitle{
+    font-size: 40px;
+    margin: 0px; 
+    font-style: italic;
+    text-align: center;   
+}
+/* blinking Insertion Point */
+#insertion-point {
+    animation: blink 1s infinite ease;
+
+}
+
+#number-side {
+    z-index:-1;
+    position:absolute; 
+    color:grey;
+    border-right: rgb(54, 54, 54) solid;
+    padding-right:.8em;
+    padding-top:.5em;
+    margin:0em 0em 0em .5em;
+    font-size: 1.5em;
+    
+}
+
+.content-wrapper {
+    position:relative;
+    overflow:hidden;
+    border:rgb(30,30,30) solid 1px;
+}
+
+footer {
+    border-top: solid 1px white;
+    z-index:1;
+    height:50px;
+    background:royalblue;
+}
+
+.footer-content {
+    margin:auto;
+    border:1px solid white;
+
+}
+
+
+
+
+
+

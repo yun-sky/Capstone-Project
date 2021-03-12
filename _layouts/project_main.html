@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <!-- My CSS Files -->
+
+
+    <link rel="stylesheet" href={{ "/assets/css/projects style/style.css" | relative_url }}>
+    {% if page.cssfiles %}
+    {% include {{page.cssfiles}} %}
+    {% endif %}
+    <link rel="stylesheet" href={{ "/assets/css/global style/template.css" | relative_url }}>
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" href={{ "/assets/images/favicon.png" | relative_url }}>
+
+    <!-- Title -->
+    <title>{{ page.page_name }}</title>
+    
+</head>
+<body>
+    {% include navigation.html %}
+
+    <section class="content-wrapper">
+        
+        <p id="number-side"></p>
+        <script src="/assets/js/function.js"></script>
+        
+        <main>
+        {{ content }}
+        </main>
+
+    </section>
+
+    <footer></footer>
+
+</body>
+</html>

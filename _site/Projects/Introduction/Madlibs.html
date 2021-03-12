@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!--Meta Tags-->
+    <meta charset="utf-8">
+
+    <!-- CDN Distributed Files-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/atom-one-dark-reasonable.min.css" integrity="sha512-DYEvxq+ESMe6pfhEV4PDJcYLuz3XZ3cp/RTUuAxblTKiIQ7O5Hf7cikoFPdfqrASCPLk5fYAhq8PwPoA7LBluw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" integrity="sha512-zol3kFQ5tnYhL7PzGt0LnllHHVWRGt2bTCIywDiScVvLIlaDOVJ6sPdJTVi0m3rA660RT+yZxkkRzMbb1L8Zkw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/1c.min.js" integrity="sha512-C5GIjUgA7ODWMGQvuWyFZNwq6s5lJLTOPx5oVLX+Ims5piXCsdCfohUC1L015OaUC7DxHPIfvt2eK5ja9fLtEA==" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!--My CSS Files-->
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/style.css>
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/main.css>
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/animation.css>
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/template.css>
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
+
+
+    <!--Website Title-->
+    <title> Madlibs </title>
+
+</head>
+
+<body>
+
+    <nav>
+    <ul>
+        <h2 id="icon">> C:\Users\SkyYun\projects\Introduction\Madlibs</h2>
+        <li><h4><a href="..">Home</a></h4></li>
+        <li><h4><a href=/Capstone-Project/About-Me>About Me</a></h4></li>
+        <li><h4><a href=/Capstone-Project/Projects>Projects</a></h4></li>
+    </ul>
+</nav>
+
+    <section class="content-wrapper">
+
+        <header >
+            <h2 class="test">Madlibs</h2>
+            <h1><span style="color:royalblue;">print</span>("Projects")</h1>
+        </header>
+
+        <p id="number-side"></p>
+        <script src="/assets/js/function.js"></script>
+
+        <main>
+            <section class="sidebar" style="border:white solid 2px; width:250px; height:auto;">
+                <section class="sidebar-section">
+    <h1 class="title">Text-Based Projects</h1>
+    <h2><a href ="Madlibs" class="sidebar-item">Madlibs</a></h2>
+    <h2><a href ="Number-Guessing-Game" class="sidebar-item">Number-Guessing Game</a></h2>
+    <h2><a href ="BonBon-Factory" class="sidebar-item">BonBon Factory</a></h2>
+    <h2><a href ="Chemical-Formula-Converter" class="sidebar-item">Chemical Formula Converter</a></h2>
+    <h2><a href ="Tic-Tac-Toe" class="sidebar-item">Tic-Tac-Toe</a></h2>
+</section>
+
+            </section>
+            <section class="main-content">
+                <h1>Madlibs is a game that uses a series of randomly picked words to create an out-of-context 
+    (and usually odd) story. Most people have played this game before on a piece of paper, but 
+    with the usage of variables, input functions and concatenation, we can create a simple 
+    program that will take in our words and output a story without words in it! This was one 
+    of the first projects I made using python. <br><br>The first step of building this game was finding 
+    a mad-libs example to use as a template. I just searched mine up and picked the first one 
+    I saw and set each blank as its variable, assigning its names accordingly and making sure 
+    that each differs from the other.</h1> 
+
+
+<pre><code class="python">
+#The input function will take in a  the user's input and store it as a variable for me to reference
+holiday = input("Enter a holiday: ")
+
+</code></pre>
+
+<h1>So in the end it looked like this:</h1>
+<pre><code class="python">
+#same as before:
+holiday = input("Enter a holiday: ")
+
+#added words:
+noun1 = input("Enter a noun: ")
+place = input("Enter a place: ")
+person = input("Enter a person's name: ")
+adjective1 = input("Enter an adjective: ")
+body_prt = input("Enter a body part (plural): ")
+verb = input("Enter a verb: ")
+adjective2 = input("Enter an adjective:")
+noun2 = input("Enter a noun: ")
+food = input("Enter a type of food: ")
+noun3 = input("Enter a plural noun: ")
+
+</code></pre>
+
+<h1>After I assigned all the variables, it was time to put it all together by stuffing the template into a print function. I found this to be the most tedious part, as each variable needed to be in its proper place.  </h1>
+
+<pre><code class="python">
+print("I can't believe it's already " + holiday + " I can't wait to put on my " 
++ noun1 + " and visit every " + place + " in my neighborhood. This year, I am going to dress up as " 
++ person + " with " + adjective1 + body_prt + ". Before I " + verb + ", I make sure to grab my " 
++ adjective2 + noun2 + " to hold all of my food. Finally, all of my " + noun3 + 
+" are ready to go!")
+
+</code></pre>
+
+<h1>All done! I definitely made a lot of typing errors during this step, but
+    this is what the output will look like once it first appears in the command line: </h1>
+
+<pre><code class="plaintext output">
+Enter a holiday:
+
+</code></pre>
+
+<h1>Once I plug in a input, the next prompt will show up immediatly after. </h1>
+
+<pre><code class="plaintext output">
+Enter a holiday: Christmas Eve
+Enter a noun:
+    
+</code></pre>
+
+<h1>Finally after filling out all the prompts, the story will appear!</h1>
+
+<pre><code class="plaintext output">
+Enter a holiday: Christmas Eve
+Enter a noun: block of cheese
+Enter a place: Burger King
+Enter a person's name: John Doe
+Enter an adjective: stunning  
+Enter a body part (plural): elbows
+Enter a verb: skip
+Enter an adjective:funny
+Enter a noun: jean shorts
+Enter a type of food: cheesecake
+Enter a plural noun: cats
+I can't believe it's already Christmas Eve I can't wait to put on my block of cheese and visit every Burger King 
+in my neighborhood. This year, I am going to dress up as John Doe with stunning elbows. Before I skip, I make sure 
+to grab my funny jean shorts to hold all of my food. Finally, all of my cats are ready to go!
+        
+</code></pre>
+
+
+
+     
+            </section>
+        </main>
+
+    </section>
+    
+    <footer></footer>
+    
+
+    
+</body>
+</html>
+

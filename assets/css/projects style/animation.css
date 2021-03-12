@@ -1,0 +1,24 @@
+@keyframes blink {
+    0%{opacity: 0;}
+    100%{opacity:3;}
+}
+
+
+@media screen and (min-width:1400px) {
+    main {
+        width: 1200px;
+    }
+     
+}
+
+@media screen and (max-width:1400px){
+    main {
+        margin-left:120px;
+        margin-right:100px;
+    }
+    header {
+        padding:50px;
+        text-align:left;
+    }
+
+}

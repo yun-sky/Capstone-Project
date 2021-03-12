@@ -1,0 +1,21 @@
+.container{
+    display:flex;
+    margin:20px auto;
+    
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.container-item {
+    width:500px;
+    height:200px;
+    margin:20px;
+    background:rgb(54, 54, 54);
+    box-shadow:2px 2px royalblue;
+}
+
+.royalblue-highlight {
+    background:royalblue;
+}
+
+

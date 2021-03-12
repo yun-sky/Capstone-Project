@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!--Meta Tags-->
+    <meta charset="utf-8">
+
+    <!-- CDN Distributed Files-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/atom-one-dark-reasonable.min.css" integrity="sha512-DYEvxq+ESMe6pfhEV4PDJcYLuz3XZ3cp/RTUuAxblTKiIQ7O5Hf7cikoFPdfqrASCPLk5fYAhq8PwPoA7LBluw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js" integrity="sha512-zol3kFQ5tnYhL7PzGt0LnllHHVWRGt2bTCIywDiScVvLIlaDOVJ6sPdJTVi0m3rA660RT+yZxkkRzMbb1L8Zkw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/1c.min.js" integrity="sha512-C5GIjUgA7ODWMGQvuWyFZNwq6s5lJLTOPx5oVLX+Ims5piXCsdCfohUC1L015OaUC7DxHPIfvt2eK5ja9fLtEA==" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!--My CSS Files-->
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/style.css>
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/main.css>
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/animation.css>
+    <link rel="stylesheet" href=/Capstone-Project/assets/css/projects%20style/template.css>
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
+
+
+    <!--Website Title-->
+    <title> Chemical Formula Converter </title>
+
+</head>
+
+<body>
+
+    <nav>
+    <ul>
+        <h2 id="icon">> C:\Users\SkyYun\projects\Introduction\Dice Roller</h2>
+        <li><h4><a href="..">Home</a></h4></li>
+        <li><h4><a href=/Capstone-Project/About-Me>About Me</a></h4></li>
+        <li><h4><a href=/Capstone-Project/Projects>Projects</a></h4></li>
+    </ul>
+</nav>
+
+    <section class="content-wrapper">
+
+        <header >
+            <h2 class="test">Chemical Formula Converter</h2>
+            <h1><span style="color:royalblue;">print</span>("Projects")</h1>
+        </header>
+
+        <p id="number-side"></p>
+        <script src="/assets/js/function.js"></script>
+
+        <main>
+            <section class="sidebar" style="border:white solid 2px; width:250px; height:auto;">
+                <section class="sidebar-section">
+    <h1 class="title">Text-Based Projects</h1>
+    <h2><a href ="Madlibs" class="sidebar-item">Madlibs</a></h2>
+    <h2><a href ="Number-Guessing-Game" class="sidebar-item">Number-Guessing Game</a></h2>
+    <h2><a href ="BonBon-Factory" class="sidebar-item">BonBon Factory</a></h2>
+    <h2><a href ="Chemical-Formula-Converter" class="sidebar-item">Chemical Formula Converter</a></h2>
+    <h2><a href ="Tic-Tac-Toe" class="sidebar-item">Tic-Tac-Toe</a></h2>
+</section>
+
+            </section>
+            <section class="main-content">
+                <h1>
+    Chemistry is one of my favourite subjects in school, and I thought it would be cool to combine my interest in chemistry with programming. So I created a program that will take an ionic compound and convert it into its formula. For obvious reasons, this program cannot take in every ionic compound, as I would have to list out all the elements on the periodic table for it to work. However it is still a simple project that helped me understand the basics of python. 
+
+</h1>
+
+<h1><span class="royalblue-highlight">Objective:</span> 
+    Objective: Create a program that will take in a chemical name and output a formula. <br>
+    Ex. Lithium Oxide → Li2O
+</h1>
+
+<h1>
+    First, I put the most common metals and non-metals into a dictionary and assigned each name to a list containing their charge and symbol. I then created a variable that will store the user’s chemical name.
+</h1> 
+
+<pre class="python"><code>
+print("TEST CHEMICAL NAME TO FORMULA: ")
+elementconvert = {
+    "Lithium": ["Li", ""],
+    "Sodium": ["Na", ""],
+    "Potassium": ["K", ""],
+    "Rubidium": ["Rb", ""],
+    "Cesium": ["Cs", ""],
+    "Beryllium": ["Be", 2],
+    "Magnesium": ["Mg", 2],
+    "Calcium": ["Ca", 2],
+    "Strontium": ["Sr", 2],
+    "Barium": ["Br", 2],
+    "Oxide": ["O", 2],
+    "Chloride": ["Cl", ""],
+    "Sulphide": ["S", 2],
+    "Fluoride": ["F", ""],
+    "Nitride": ["N", 3],
+    "Iron(Iii)": ["Fe", 3],
+    "Iron(Ii)": ["Fe", 2],
+    "Nickel(Iii)": ["Ni", 3],
+    "Nickel(Ii)": ["Ni", 2]
+}
+
+chem_name = input("Please enter a formula: ").title().strip()
+</code></pre>
+
+<h1>
+    Next, I created a function that converts the user’s input into a manageable form. In hindsight, I should have made this code cleaner as even I have a hard time following what each step is doing. Splitting these steps into different functions should make interpreting this code a lot easier.   
+</h1>
+<pre class="python"><code>
+def nomenclature():
+    #local Variables
+    error = False
+    chem_name_list = list(chem_name)
+    indices = [i for i, letter in enumerate(chem_name) if letter == " "]
+
+    #Checks if there are spaces inside the user's input
+    if " " not in chem_name:
+        print("Error, Requires spaces to give a formula")
+        error = True
+    else:
+        while len(indices) > 1 and chem_name not in "(":
+            del chem_name_list[max(indices)]
+            indices.remove(max(indices))
+
+        #This is for transition metals, or metals with multiple charges
+        for letter in chem_name:
+            if letter in ")":
+                del chem_name_list[indices[0]]
+                temp_index = chem_name_list.index(")")+1
+                chem_name_list.insert(temp_index, " ")
+                indices.append(temp_index)
+
+    return indices, chem_name_list, error
+
+</code></pre>
+
+<h1>
+    The next step was assembling the formula into a string by setting each non-metal, metal, and corresponding charges as a variable:
+
+</h1>
+
+<pre class="python"><code>
+def calculation():
+    try:
+        for index in indices:
+            metal = (chem_name_list[0:index])
+            nmetal = (chem_name_list[index+1:])
+            metal = "".join(metal)
+            nmetal = "".join(nmetal).capitalize()
+        metal_name = elementconvert[metal][0]
+        nmetal_name = elementconvert[nmetal][0]
+        metalion = elementconvert[metal][1]
+        nmetalion = elementconvert[nmetal][1]
+        if metalion == nmetalion:
+            metalion = ""
+            nmetalion = ""
+        print(metal_name + str(nmetalion) + nmetal_name + str(metalion))
+    except:
+        print("ERROR")
+</code></pre>
+
+<h1>After creating all the necessary functions, it was time to put it all together:</h1>
+
+<pre class="python"><code>
+indices, chem_name_list, error = nomenclature()
+if error == False:
+    calculation()
+try_again = input("Enter 'Y' if you would like to enter another formula (Y/N): ").upper()
+
+while try_again == "Y":
+    chem_name = input("Please enter a formula: ").title().strip()
+    indices, chem_name_list, error = nomenclature()
+    if error == False:
+        calculation()
+        try_again = input("Enter 'Y' if you would like to enter another formula (Y/N): ").upper()
+
+print("Thanks for stopping By!")
+input()
+</code></pre>
+
+<h1><span class="royalblue-highlight">Output:</span></h1>
+
+<pre><code class="plaintext output">
+TEST CHEMICAL NAME TO FORMULA:
+Please enter a formula: Lithium Oxide
+Li2O
+Enter 'Y' if you would like to enter another formula (Y/N): Y
+Please enter a formula: Iron (II) Sulphide
+FeS
+Enter 'Y' if you would like to enter another formula (Y/N):
+
+</code></pre>
+     
+            </section>
+        </main>
+
+    </section>
+    
+    <footer></footer>
+    
+
+    
+</body>
+</html>
+

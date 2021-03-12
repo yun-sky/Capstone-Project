@@ -1,0 +1,127 @@
+---
+layout: project_setup
+placement: projects\Introduction\Tic-Tac-Toe
+project_name: Tic-Tac-Toe
+background: rgb(1, 1, 1)
+sidebar: sidebar_intro.html
+---
+
+<h1>Before creating my Tic-Tac-Toe game, I initialized the board for the x's and o's to be displayed on.</h1>
+
+<pre><code>
+tictac = [
+    ["_", "_", "_"],
+    ["_", "_", "_"],
+    ["_", "_", "_"]]
+
+</code></pre>
+
+<h1>Next, I had to create a program that will check whether or not a player has won. That means I would have to create a function that
+will check each row, column, and cross after every turn. So, I splited each step into its own function to make the process easier.
+</h1>
+
+<pre><code>
+"""
+Each function follows the same process: it stores each value as a list, and if the list only contains one value 
+then the program knows that a player has won. 
+
+"""
+#Checks each row
+def row(player, player2):
+    subset = []
+    for row in tictac:
+        for space in row:
+            subset.append(space)
+        if "_" not in subset and player2 not in subset:
+            print(player + " Won the Game")
+            return True
+        else:
+            subset.clear()
+
+#Checks each column
+def column(player, player2):
+    subset = []
+    for y in range(3):
+        for x in range(3):
+            subset.append(tictac[x][y])
+        if "_" not in subset and player2 not in subset:
+            print(player + " Won the Game")
+            break
+        else:
+            subset.clear()
+
+#checks one diagonal
+def diagonal(player):
+    x = 0
+    for y in range(3):
+        if tictac[y][y] == "_":
+            break
+        elif tictac[y][y] == player:
+            x += 1
+    if x == 3:
+        print(player  + " Won the game")
+
+#Checks the other diagonal
+def diagonal2(player):
+    y = 2
+    for x in range(3):
+        if tictac[x][y] == "_":
+            break
+        elif tictac[x][y] == player:
+            y -= 1
+    if y == 3:
+        print(player + "Won the game")
+
+</code></pre>
+<h1>
+    The next function, game, allows the user to input their position on the board and then display it on the screen. This will act as the front-end of the game and will also check if the user has entered an invalid input.
+</h1>
+
+<pre class="python"><code>
+def game(player2): 
+    row = int(input("Enter the row: ")) - 1
+    column = int(input("Enter the column: ")) - 1
+    player = player2 % 2
+    if row >= 3 or column >= 3:
+        print("That's too big of an number for this game!\nPlease choose another one")
+        return False
+    elif row < 3 or column < 3:
+        if tictac[row][column] == "_":
+            if player == 0:
+                tictac[row][column] = "X"
+            elif player != 0:
+                tictac[row][column] = "O"
+        else:
+            print("INVALID")
+            return False
+    for row in tictac:
+        print(row)
+
+</code></pre>
+
+<h1>
+    Finally, I created the backend of the tic-tac-toe game by combining the functions into another function. 
+</h1>
+
+<pre class="python"><code>
+def final_setup():
+    gametime = 0
+    while True:
+        x = game(gametime)
+        if x == False:
+            x = True
+        else:
+            row("X", "O")
+            row("O", "X")
+            column("X", "O")
+            column("O", "X")
+            diagonal2("X")
+            diagonal2("O")
+            diagonal("X")
+            diagonal("O")
+            gametime += 1
+
+#Calling the function
+final_setup()
+
+</code></pre>

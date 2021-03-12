@@ -1,0 +1,143 @@
+body{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    color:white;
+    font-family:monospace;
+    background:rgb(30,30,30);
+}
+
+/* Header */
+Header {
+    background:url(../../images/Backrgound.png);
+    text-align:center;
+    font-size: 2em;
+    margin:0px;
+    padding:50px 0px 50px 0px;
+    border-bottom:rgb(54, 54, 54) solid 2px;
+}
+header h1 {
+    margin: 10px 0px 15px 0px;
+    padding:0px;
+    font-size:2.3em;
+}
+header h2 {
+    margin:0px;
+}
+
+
+/*Navigation*/
+nav {
+    z-index: 3;
+    width: 100%;
+    position: -webkit-sticky;
+    border-bottom:solid rgb(51, 51, 51);
+    background-color: rgb(30,30,30);
+    position:sticky;
+    top:0;
+}
+nav ul{
+    text-align: right;
+    list-style-type: none;
+    margin:0px;
+    padding:0;
+}
+nav li {
+    display:inline-block;
+}
+
+nav li:hover{
+    margin:0px;
+    background:rgb(51, 51, 51);
+}
+
+nav li a {
+    font-size:19px;
+    margin:0px 12px 0px 12px;
+    color:rgb(85, 84, 84);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color:white;
+    animation: blink .5s ease-out;
+}
+
+#icon {
+    margin-left:10px;
+    float:left;
+}
+
+nav li.disabled {
+    border-bottom:white solid;
+}
+nav li.disabled a {
+    color:white;
+}
+
+/* Numbers on the side */
+#number-side {
+    z-index:-1;
+    position:absolute;
+    clear: both;
+    color:grey;
+    border-right: rgb(54, 54, 54) solid;
+    padding-right:.8em;
+    padding-top:.5em;
+    margin:0em 0em 0em .4em;
+    font-size: 1.5em;
+
+}
+
+/* Header, Numberside, Main */
+.content-wrapper {
+    z-index:2;
+    position:relative;
+    overflow:hidden;
+    border:rgb(30,30,30) solid 1px;
+}
+
+pre > code {
+    margin-top:40px; 
+    margin-bottom:40px;
+    border:solid 1px white;
+    overflow-x:scroll;
+}
+
+.output {
+    background-color:black;
+    color:white;
+}
+
+footer {
+    clear:both;
+    border-top: solid white 1px;
+    z-index:10;
+    height:50px;
+    background:royalblue;
+}
+
+/* Scroller */
+    /* width */
+    code::-webkit-scrollbar {
+    width: 2px;
+    height: 10px;;
+  }
+  
+  /* Track */
+  code::-webkit-scrollbar-track {
+    background: royalblue;
+  }
+  
+  /* Handle */
+  code::-webkit-scrollbar-thumb {
+    background: #888;
+    height:2px;
+  }
+  
+  /* Handle on hover */
+  code::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
